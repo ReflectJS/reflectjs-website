@@ -1,4 +1,4 @@
-const ServerImpl = require("../dist/server/server-impl").default;
+const ServerImpl = require("../reflectjs/dist/server/server-impl").default;
 
 const CAT_FACTS = [
   { fact: "The cat who holds the record for the longest non-fatal fall is Andy. He fell from the 16th floor of an apartment building (about 200 ft/.06 km) and survived." },
@@ -61,7 +61,7 @@ new ServerImpl({
   rootPath: process.cwd() + '/docroot',
   trustProxy: false,
   assumeHttps: false,
-  clientJsFilePath: '../dist/client.js',
+  clientJsFilePath: '../reflectjs/dist/client.js',
   pageLimit: {
     windowMs: 5000,
     maxRequests: 50
