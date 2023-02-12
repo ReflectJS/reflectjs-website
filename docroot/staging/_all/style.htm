@@ -11,18 +11,24 @@
       margin-left: .2em;
     }
     .jumbotron {
+      min-height: 15em;
       background: rgb(210,226,255);
       /* background: linear-gradient(160deg, rgb(208, 233, 244) 0%, rgba(217,243,255,1) 10%, rgb(195, 215, 251) 100%); */
       background: linear-gradient(160deg, rgb(208, 233, 244) 0%, rgba(217,243,255,1) 10%, rgb(205, 221, 250) 100%);
     }
     .jumbotron > .container {
+      min-height: 15em;
       padding-top: 2.2em;
-      padding-bottom: 1.55em;
+      /* padding-bottom: 1.55em; */
+      display: flex;
+      flex-direction: column;
     }
     .jumbotron p {
+      flex: 1;
       font-weight: 300;
       letter-spacing: .25px;
-      margin-top: -.75em;
+      margin-top: -.66em;
+      margin-bottom: 2.2em;
     }
     .jumbotron .nav-tabs,
     .jumbotron .nav-link.active,
