@@ -1,0 +1,71 @@
+<lib>
+
+  <style data-name="app-hero">
+    .app-hero {
+      min-height: 15em;
+      background: rgb(210,226,255);
+      background: linear-gradient(160deg, rgb(208, 233, 244) 0%, rgba(217,243,255,1) 10%, rgb(205, 221, 250) 100%);
+    }
+    .app-hero > .container {
+      min-height: 15em;
+      padding-top: 2.2em;
+      display: flex;
+      flex-direction: column;
+    }
+    .app-hero p {
+      flex: 1;
+      font-weight: 300;
+      letter-spacing: .25px;
+      margin-top: -.66em;
+      margin-bottom: 2.2em;
+    }
+    .app-hero .nav-tabs,
+    .app-hero .nav-link.active,
+    .app-hero .nav-link:hover {
+      border-color: transparent;
+    }
+    .app-hero .nav-link:not(.active) {
+      background: rgba(255,255,255,.25);
+    }
+    .app-hero .nav-link.active {
+      color: var(--bs-body-color)
+    }
+    @media (prefers-color-scheme: dark) {
+      .app-hero {
+        color: #fff;
+        background-color: #3c505b;
+        background: linear-gradient(180deg, #1c4f89 0%, #114d7a 100%);
+      }
+      .app-hero p {
+        font-weight: 200;
+        letter-spacing: .5px;
+      }
+      .app-hero .nav-link:not(.active) {
+        background: rgba(255,255,255,.05);
+      }
+      .app-hero .nav-link:not(.active) {
+        color: #8ebbff;
+      }
+      .app-hero a {
+        font-weight: 300;
+        letter-spacing: .25px;
+      }
+    }
+  </style>
+
+  <:define tag="app-hero" class="app-hero"
+           :hideHeader="[[false]]"
+           :hideLead="[[false]]">
+    <bs-container>
+      <h1 :hidden="[[hideHeader]]">
+        <:slot name="header"/>
+      </h1>
+      <br :hidden="[[false]]"/>
+      <p class="lead" :hidden="[[hideLead]]">
+        <:slot name="lead"/>
+      </p>
+      <:slot name="default"/>
+    </bs-container>
+  </:define>
+
+</lib>

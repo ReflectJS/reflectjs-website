@@ -1,0 +1,36 @@
+<lib>
+
+  <style data-name="app-sample">
+
+  </style>
+
+  <style>
+    .app-sample-icon {
+      margin-right: .1em;
+    }
+    .app-sample-descr {
+    }
+  </style>
+
+  <:define tag="app-sample"
+           class="app-sample"
+           :anchor="[[null]]"
+           :icon="[[null]]"
+           :title="Sample">
+    <app-anchor id="[[anchor]]"/>
+
+    <h4>
+      <bs-icon :class-app-sample-icon="[[true]]" :icon="[[icon]]" :hidden="[[!icon]]"/>
+      [[title]]
+    </h4>
+
+    <div class="app-sample-descr">
+      <:slot name="descr"/>
+    </div>
+
+    <bs-card>
+
+    </bs-card>
+  </:define>
+
+</lib>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html :release="0.1.0">
+  <head>
+    <title>Reflect.js</title>
+    <:import src="lib/base.htm"/>
+    <:import src="lib/hero.htm"/>
+    <:import src="lib/sample.htm"/>
+    <style data-name="index">
+      .app-release-badge {
+        font-size: 1rem;
+        margin-left: .5em;
+        vertical-align: 33%;
+        padding-left: .8em;
+      }
+      .app-release-badge > i {
+        padding-left: .2em;
+      }
+    </style>
+  </head>
+  <body>
+    <app-base>
+      <app-hero>
+        <span :slot="header">
+          Reflect.js
+
+          <a href="https://github.com/ReflectJS/reflectjs/releases"
+            target="_blank">
+            <bs-badge :pill="true"
+                      :type="warning"
+                      :class-app-release-badge="[[true]]">
+              v.[[release]] <bs-icon :icon="github"/>
+            </bs-badge>
+          </a>
+        </span>
+
+        <span :slot="lead">
+          The simplest reactive web framework for Node.js and the browser.
+          It turns HTML into a <a href="#reactivity">reactive language</a>
+          for creating dynamic web sites and web apps, made of
+          <a href="#reusability">reusable components</a>, that are still
+          <a href="#indexability">fully indexable</a> out of the box.
+        </span>
+      </app-hero>
+
+      <:include src="data/samplesData.htm"/>
+      <bs-container :fluid="[[true]]">
+        <div class="row gx-5">
+          <bs-col :size="lg-7">
+            <app-sample :anchor="reactivity"
+                        :data="[[samplesData.content.reactive1]]"
+                        :icon="[[data.icon]]"
+                        :title="[[data.title]]">
+
+            </app-sample>
+          </bs-col>
+
+          <bs-col :size="lg-5">
+          </bs-col>
+        </div>
+      </bs-container>
+    </app-base>
+  </body>
+</html>
