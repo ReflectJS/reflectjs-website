@@ -1,13 +1,24 @@
 <lib>
+<script :aka="samplesData"
+        type="text/JavaScript"
+        :content="[[window.eval(__dom.innerText)]]">({
 
-  <script :aka="samplesData" :content=[[{
-    reactive1: {
-      icon: 'code-square',
-      title: 'Reactive HTML',
-      descr: `In Reflect.js pages you can add [logic values](docs/compiler#values)
-              to any tag and use reactive JavaScript [expressions](docs/compiler#expressions)
-              in any attribute or text to reflect results in the page.`
-    }
-  }]]></script>
+  reactive1: {
+    icon: 'code-square',
+    title: 'Reactive HTML',
+    descr: `In Reflect.js pages you can add [logic values](docs/compiler#values)
+            to any tag and use reactive JavaScript [expressions](docs/compiler#expressions)
+            in any attribute or text to reflect results in the page.`,
+    code:
+`\`\`\`html
+<div :count="[[0]]"
+     :did-init="[[
+       setInterval(() => count++, 1000)
+     ]]">
+  Seconds: [[count]]
+</div>
+\`\`\``
+    },
 
+})</script>
 </lib>

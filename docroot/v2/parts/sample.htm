@@ -1,14 +1,17 @@
 <lib>
 
-  <style data-name="app-sample">
-
-  </style>
-
-  <style>
+  <style data-name="app-sample" :spacing="[[2]]">
+    .app-sample {
+      padding-top: [[spacing * 1.5]]rem;
+    }
+    .app-sample-title {
+      margin-bottom: [[spacing * 1]]rem;
+    }
     .app-sample-icon {
       margin-right: .1em;
     }
     .app-sample-descr {
+      margin-bottom: [[spacing * 1]]rem;
     }
   </style>
 
@@ -19,7 +22,7 @@
            :title="Sample">
     <app-anchor id="[[anchor]]"/>
 
-    <h4>
+    <h4 class="app-sample-title">
       <bs-icon :class-app-sample-icon="[[true]]" :icon="[[icon]]" :hidden="[[!icon]]"/>
       [[title]]
     </h4>
@@ -29,7 +32,7 @@
     </div>
 
     <bs-card>
-
+      <:slot name="default"/>
     </bs-card>
   </:define>
 

@@ -2,6 +2,8 @@
 
   <link rel="icon" href="favicon.svg">
   <:import src="/.kit/bootstrap/all.htm"/>
+  <:import src="/.kit/bootstrap/opt/marked-js.htm"/>
+  <:import src="/.kit/bootstrap/opt/highlight-js.htm"/>
   <:import src="/.kit/bootstrap/icons.htm"/>
 
   <style data-name="app-base">
@@ -49,6 +51,12 @@
       .app-footer {
         background-color: #114d7a;
       }
+    }
+  </style>
+
+  <style data-name="app-marked-js">
+    .marked-js > *:last-child {
+      margin-bottom: 0;
     }
   </style>
 

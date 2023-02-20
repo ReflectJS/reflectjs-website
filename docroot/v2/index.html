@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html :release="0.1.0">
+<html lang="en"
+      :release="0.1.0">
   <head :k_highlightJsStyle="atom-one-dark">
     <title>Reflect.js</title>
-    <:import src="lib/base.htm"/>
-    <:import src="lib/hero.htm"/>
-    <:import src="lib/sample.htm"/>
+    <:import src="parts/base.htm"/>
+    <:import src="parts/hero.htm"/>
+    <:import src="parts/sample.htm"/>
     <style data-name="index">
       .app-release-badge {
         font-size: 1rem;
@@ -50,7 +51,8 @@
                         :data="[[samplesData.content.reactive1]]"
                         :icon="[[data.icon]]"
                         :title="[[data.title]]">
-
+              <marked-js :slot="descr" :source="[[data.descr]]"/>
+              <marked-js :source="[[data.code]]"/>
             </app-sample>
           </bs-col>
 
