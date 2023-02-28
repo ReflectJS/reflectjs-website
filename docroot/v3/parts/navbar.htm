@@ -1,0 +1,23 @@
+<lib>
+  <style data-name="app-navbar">
+    @media (prefers-color-scheme: dark) {
+      .navbar.navbar-dark {
+        background: #111 !important;
+      }
+    }
+    .app-navbar-brand-icon {
+      width: 1.5em;
+      height: 1.5em;
+      vertical-align: -26%;
+    }
+  </style>
+
+  <:define tag="app-navbar:bs-navbar"
+           :dark="[[true]]"
+           :brandLink="index">
+    <span :slot="brand">
+      <img class="app-navbar-brand-icon" src="res/reflectjs-logo.svg"/>
+      <span>Reflect.js</span>
+    </span>
+  </:define>
+</lib>

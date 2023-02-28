@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Reflect.js</title>
+    <link rel="icon" href="favicon.svg">
+    <:import src="/.kit/bootstrap/all.htm"/>
+    <:import src="/.kit/bootstrap/icons.htm"/>
+    <:import src="parts/styles.htm"/>
+    <:import src="parts/navbar.htm"/>
+    <:import src="parts/footer.htm"/>
+    <:import src="pages/index.htm"/>
+    <:import src="pages/examples.htm"/>
+  </head>
+  <body :path="index">
+    <app-navbar/>
+    <:on-off :on="[[path === 'index']]"><index-page/></:on-off>
+    <:on-off :on="[[path === 'examples']]"><examples-page/></:on-off>
+    <app-footer/>
+  </body>
+</html>

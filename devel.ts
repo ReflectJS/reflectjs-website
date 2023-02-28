@@ -7,7 +7,7 @@ const CAT_FACTS = [
 ];
 
 new ServerImpl({
-  port: 3002,
+  port: 3000,
   rootPath: process.cwd() + '/docroot',
   trustProxy: false,
   assumeHttps: false,
