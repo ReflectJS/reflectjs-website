@@ -1,0 +1,5 @@
+{
+  "routes": [
+    { "regex": "^/v3/", "path": "/v3/index.html" }
+  ]
+}

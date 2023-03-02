@@ -1,5 +1,39 @@
 <lib>
   <style data-name="app-footer">
-
+    .app-footer {
+      background: rgb(217,243,255);
+      padding-top: 2em;
+      padding-bottom: 1em;
+      margin-top: 1.5em;
+    }
+    .app-footer p {
+      opacity: .95;
+    }
+    @media (prefers-color-scheme: dark) {
+      .app-footer {
+        background-color: #114d7a;
+      }
+    }
   </style>
+
+  <:define tag="app-footer" class="app-footer">
+    <bs-container style="text-align: center">
+      <bs-row>
+        <bs-col>
+          <p>
+            Powered by Reflect.js and
+            <a target="_blank" href="https://getbootstrap.com">
+              Bootstrap
+            </a>
+          </p>
+          <p>
+            Copyright © [[new window.Date().getYear() + 1900]]
+            <a target="_blank" href="https://github.com/ReflectJS">
+              Reflect.js Group
+            </a>
+          </p>
+        </bs-col>
+      </bs-row>
+    </bs-container>
+  </:define>
 </lib>
