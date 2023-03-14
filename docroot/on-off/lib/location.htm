@@ -1,0 +1,25 @@
+<lib>
+  <script :aka="location"
+          :base="[[PAGEPATH.replace(/([^\/]+)$/, '')]]"
+          :path=""
+          :page="[[path.substring(base.length)]]"
+
+          :did-init="[[
+            _update(window.location.pathname);
+            window.navigation && window.navigation.addEventListener('navigate', (ev) => {
+              if (!ev.canIntercept || ev.hashChange || ev.downloadRequest !== null) {
+                return;
+              }
+              const that = this;
+              const url = new window.URL(ev.destination.url);
+              if (url.pathname.startsWith(base)) {
+                ev.intercept({
+                  handler() { that._update(url.pathname); },
+                })
+              }
+            });
+          ]]"
+
+          :_update="[[(s) => path = s.replace(/(.html)$/, '').replace(/(\/)$/, '/index')]]"
+  ></script>
+</lib>

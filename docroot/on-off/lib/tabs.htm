@@ -1,0 +1,24 @@
+<lib>
+  <:import src="location.htm"/>
+  <style>
+    .app-tabs {
+      margin-bottom: .5em;
+      user-select: none;
+    }
+    .app-tabs > * {
+      color: initial;
+      text-decoration: none;
+      padding: 0 .5em;
+      border: 1px solid #222;
+    }
+    .app-tabs > *.active {
+      text-decoration: underline;
+    }
+  </style>
+
+  <:define tag="app-tabs" class="app-tabs"/>
+
+  <:define tag="app-tab:a"
+            href="[[head.location.base + target]]"
+            :class-active="[[__dom.getAttribute('href') === head.location.path]]" />
+</lib>

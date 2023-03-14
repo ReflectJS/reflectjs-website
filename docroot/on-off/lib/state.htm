@@ -1,0 +1,59 @@
+<lib>
+  <:define tag="on-off:template"
+           :on="[[false]]"
+           :_instanceDom="[[null]]"
+
+           :will-init=[[
+             if (!isServer) {
+                _instanceDom = __dom.parentElement.querySelector('[data-reflectjs-from="' + __id + '"]');
+             }
+           ]]
+
+           :did_init="[[
+              if (!isServer && _instanceDom && __scope.props.children) {
+                const s = __scope.page.load(__scope, __scope.props.children[0]);
+                __scope.page.refresh(s);
+              }
+           ]]"
+
+           :handle-on="[[
+              if (isServer) {
+                if (on) {
+                  const div = __dom.ownerDocument.createElement('div');
+                  div.innerHTML = __dom.innerHTML.trim();
+                  let e = div.firstElementChild;
+                  if (e) {
+                    e.remove();
+                    e.setAttribute('data-reflectjs-from', __id);
+                    __dom.parentElement.insertBefore(e, __dom);
+                    __dom.innerHTML = '';
+                    if (__scope.props.children) {
+                      const s = __scope.page.load(__scope, __scope.props.children[0]);
+                      __scope.page.refresh(s);
+                    }
+                  }
+                }
+              } else {
+                if (on && !_instanceDom) {
+                  const e = __dom.content.firstElementChild;
+                  if (e) {
+                    _instanceDom = e;
+                    e.remove();
+                    e.setAttribute('data-reflectjs-from', __id);
+                    __dom.parentElement.insertBefore(e, __dom);
+                    if (__scope.props.children) {
+                      const s = __scope.page.load(__scope, __scope.props.children[0]);
+                      __scope.page.refresh(s);
+                    }
+                  }
+                } else if (!on && _instanceDom) {
+                  while (__scope.children.length > 0) {
+                    __scope.children[0].dispose();
+                  }
+                  __dom.content.appendChild(_instanceDom);
+                  _instanceDom = null;
+                }
+              }
+           ]]"
+  />
+</lib>

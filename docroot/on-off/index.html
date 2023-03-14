@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html :URLPATH="/">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <:import src="lib/location.htm"/>
+    <:import src="lib/tabs.htm"/>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <app-tabs>
+      <app-tab :target="index">Index</app-tab>
+      <app-tab :target="examples">Examples</app-tab>
+      <app-tab :target="docs">Docs</app-tab>
+    </app-tabs>
+
+    <div>[[head.location.page]]</div>
+
+    <:on-off :on="[[head.location.page === 'index']]">
+      <span style="color: #48c"
+            :x="[[1]]"
+            data-pippo="[[x]]"
+            :did-init="[[
+              setInterval(() => x++, 1000);
+            ]]">
+        [[x]]
+      </span>
+    </:on-off>
+
+    <:on-off :on="[[head.location.page === 'examples']]">
+      <span style="color: #4c8">examples</span>
+    </:on-off>
+
+    <:on-off :on="[[head.location.page === 'docs']]">
+      <span style="color: #84c">docs</span>
+    </:on-off>
+  </body>
+</html>

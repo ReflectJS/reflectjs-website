@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" :URLPATH="/">
   <head>
     <title>Reflect.js</title>
     <link rel="icon" href="favicon.svg">
@@ -50,7 +50,8 @@
             :_update="[[(s) => {
               path = s.replace(/(.html)$/, '').replace(/(\/)$/, '/index');
               //window.console.log('-----------> path: ', path);
-            }]]"></script>
+            }]]"
+    ></script>
 
     <div class="app-content">
       <app-navbar/>
